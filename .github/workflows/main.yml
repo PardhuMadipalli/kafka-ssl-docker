@@ -25,6 +25,6 @@ jobs:
         username: ${{ secrets.DOCKER_HUB_USERID }}
         password:  ${{ secrets.DOCKER_HUB_PASSWORD }}
         dockerfile: Dockerfile 
-        repository: pardhu1212
+        repository: pardhu1212/kafka-ssl
         tags: 0.1.0
         labels: maintainer=Pardhu,production=false
