@@ -21,6 +21,7 @@ jobs:
       with:
         username: ${{ secrets.DOCKER_HUB_USERID }}
         password:  ${{ secrets.DOCKER_HUB_PASSWORD }}
+        dockerfile: ./Dockerfile 
         # Docker repository to tag the image with
         repository: pardhu1212
         tags: 0.1.0
