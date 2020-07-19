@@ -1,8 +1,7 @@
 # Kafka broker with SSL enabled using Docker
-- [Kafka broker with SSL enabled using Docker](#kafka-broker-with-ssl-enabled-using-docker)
+- [Table of Contents](#kafka-broker-with-ssl-enabled-using-docker)
   * [Quickstart](#quickstart)
     + [Environment variables](#environment-variables)
-      - [Testing new readme](#testing-new-readme)
     + [Purpose](#purpose)
   * [Description](#description)
     + [Used tools](#used-tools)
@@ -25,14 +24,6 @@
 
 Example: `docker run --net=host --init -d --name=kafkassl -e PASSWORD=abc123def kafka-ssl-image`
 
-#### Testing new readme
-
-| Variable | Default value  | Importance | Description |
-|:--------:|:-------:|:--------:|:--------|
-| PASSWORD   | password   | HIGH   | The password that will be used to create keystore file. Must be 8 or more characters. |
-| cell4   | cell5   | cell6   | |
-| cell1   | cell2   | cell3   | |
-| cell4   | cell5   | cell6   | |
 
 ### Purpose
 - The primary purpose of the project is to create a kafka container with SSL enabled.
