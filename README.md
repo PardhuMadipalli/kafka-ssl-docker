@@ -7,12 +7,14 @@
 4. Default password for keystore is `password`
 
 ### Environment variables
+
 | Variable   | Default value                             | Importance | Description                                                                                | 
 |:----------:|:-----------------------------------------:|:----------:|:-------------------------------------------------------------------------------------------|
 | PASSWORD   | password                                  | HIGH       | The password that will be used to create keystore file. Must be 8 or more characters.      |
 | DOMAIN     | www.mywebsite.com                         | HIGH       | Domain name to be used while creating the certificate.                                     |
 | KAFKA_HOME | /kafka_2.12-2.5.0/                        | LOW        | Directory where Kafka is installed inside the container.                                   |
 | KEY_STORE  | /kafka_2.12-2.5.0/ssl/server.keystore.jks | LOW        | Keystore jks file path to be used inside docker container.                                 | 
+
 
 Example: `docker run --net=host --init -d --name=kafkassl -e PASSWORD=abc123def kafka-ssl-image`
 
@@ -22,7 +24,6 @@ Example: `docker run --net=host --init -d --name=kafkassl -e PASSWORD=abc123def 
 |:--------|:-------:|--------:|
 | cell1   | cell2   | cell3   |
 | cell4   | cell5   | cell6   |
-|----
 | cell1   | cell2   | cell3   |
 | cell4   | cell5   | cell6   |
 
