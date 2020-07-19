@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Publish Docker image
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -16,14 +16,15 @@ jobs:
     runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      
     - name: Build and push Docker images
       uses: docker/build-push-action@v1.1.0
       with:
         username: ${{ secrets.DOCKER_HUB_USERID }}
         password:  ${{ secrets.DOCKER_HUB_PASSWORD }}
-        dockerfile: ./Dockerfile 
-        # Docker repository to tag the image with
+        dockerfile: Dockerfile 
         repository: pardhu1212
         tags: 0.1.0
-        # Comma-delimited list of labels to add to the built image
         labels: maintainer=Pardhu,production=false
