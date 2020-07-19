@@ -1,4 +1,4 @@
-![](https://github.com/PardhuMadipalli/kafka-ssl-docker/Publish%20Docker%20image/badge.svg
+![](https://github.com/PardhuMadipalli/kafka-ssl-docker/workflows/Publish%20Docker%20image/badge.svg
 # Kafka broker with SSL enabled using Docker
 - [Table of Contents](#kafka-broker-with-ssl-enabled-using-docker)
   * [Quickstart](#quickstart)
