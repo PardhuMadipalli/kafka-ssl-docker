@@ -1,4 +1,9 @@
 ![](https://github.com/PardhuMadipalli/kafka-ssl-docker/workflows/Publish%20Docker%20image/badge.svg)
+
+The docker image is available on [Docker Hub](https://hub.docker.com/r/pardhu1212/kafka-ssl)
+
+Run this command to pull the image: **`docker pull pardhu1212/kafka-ssl`**
+
 # Kafka broker with SSL enabled using Docker
 - [Table of Contents](#kafka-broker-with-ssl-enabled-using-docker)
   * [Quickstart](#quickstart)
@@ -23,17 +28,21 @@
 | KEY_STORE  | /kafka_2.12-2.5.0/ssl/server.keystore.jks | LOW        | Keystore jks file path to be used inside docker container.                                 | 
 
 
-Example: `docker run --net=host --init -d --name=kafkassl -e PASSWORD=abc123def kafka-ssl-image`
+Example of setting environment variable `PASSWORD`: 
+```
+docker run --net=host --init -d --name=kafkassl -e PASSWORD=abc123def pardhu1212/kafka-ssl
+```
 
 
 ### Purpose
 - The primary purpose of the project is to create a kafka container with SSL enabled.
-- The secondary goal of the project is to learn various docker commands and an important supervisor process called **runit**
+- The secondary goal of the project is to learn various docker commands and an important supervisor process called **runit**. Details will be explained in the further sections.
 
 ## Description
 
-### Used tools
+### Used tools 
 
 - Java (openJDK)
 - Openssl
 - runit
+
