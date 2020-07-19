@@ -1,7 +1,7 @@
 #!/bin/bash
 
-if [[ -z $KAFKA_HOME ]]; then
-    echo "KAFKA_HOME is not specified. Hence using default location: /kafka_2.12-2.5.0"
+if [[ -z $KAFKA_HOME || ! -d $KAFKA_HOME]]; then
+    echo "KAFKA_HOME is not specified or does not exist. Hence using default location: /kafka_2.12-2.5.0"
 	KAFKA_HOME="/kafka_2.12-2.5.0"
 fi
 
