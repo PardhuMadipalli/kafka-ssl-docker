@@ -1,3 +1,4 @@
+![](https://github.com/docker/build-push-action/Publish%20Docker%20image/badge
 # Kafka broker with SSL enabled using Docker
 - [Table of Contents](#kafka-broker-with-ssl-enabled-using-docker)
   * [Quickstart](#quickstart)
