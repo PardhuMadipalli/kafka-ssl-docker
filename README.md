@@ -1,5 +1,12 @@
 # Kafka broker with SSL enabled using Docker
-
+- [Kafka broker with SSL enabled using Docker](#kafka-broker-with-ssl-enabled-using-docker)
+  * [Quickstart](#quickstart)
+    + [Environment variables](#environment-variables)
+      - [Testing new readme](#testing-new-readme)
+    + [Purpose](#purpose)
+  * [Description](#description)
+    + [Used tools](#used-tools)
+    
 ## Quickstart
 1. Ruild the docker image using `docker build -t kafka-ssl-image`
 2. Run the container using `docker run --net=host --init -d --name=kafkassl kafka-ssl-image`
