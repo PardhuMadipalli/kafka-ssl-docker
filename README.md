@@ -8,8 +8,7 @@
 
 ### Environment variables
 | Variable | Default value | Importance |Description |
-
-| --- | --- | --- | --- |
+|:--------:|:-------------:|:----------:|:---------- |
 | PASSWORD | password | HIGH |The password that will be used to create keystore file. Must be 8 or more characters. |
 | DOMAIN | www.mywebsite.com | HIGH |Domain name to be used while creating the certificate. This is important as certificates will be verified based on domain name. |
 | KAFKA_HOME | /kafka_2.12-2.5.0/ | LOW | Directory where Kafka is installed inside the container. |
