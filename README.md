@@ -20,12 +20,12 @@ Example: `docker run --net=host --init -d --name=kafkassl -e PASSWORD=abc123def 
 
 #### Testing new readme
 
-| Header1 | Header2 | Header3 |
-|:--------|:-------:|--------:|
-| cell1   | cell2   | cell3   |
-| cell4   | cell5   | cell6   |
-| cell1   | cell2   | cell3   |
-| cell4   | cell5   | cell6   |
+| Variable | Default value  | Importance | Description |
+|:--------:|:-------:|:--------:|:--------|
+| PASSWORD   | password   | HIGH   | The password that will be used to create keystore file. Must be 8 or more characters. |
+| cell4   | cell5   | cell6   | |
+| cell1   | cell2   | cell3   | |
+| cell4   | cell5   | cell6   | |
 
 ### Purpose
 - The primary purpose of the project is to create a kafka container with SSL enabled.
