@@ -1,27 +1,17 @@
 #!/bin/bash
 
-if [[ -z $KAFKA_HOME || ! -d $KAFKA_HOME]]; then
-    echo "KAFKA_HOME is not specified or does not exist. Hence using default location: /kafka_2.12-2.5.0"
-	KAFKA_HOME="/kafka_2.12-2.5.0"
-fi
+# Ensure all environment variables are properly configured.
+: "${KAFKA_HOME=/kafka_2.12-2.5.0}"
+: "${KEY_STORE=$KAFKA_HOME/ssl/server.keystore.jks}"
+: "${DOMAIN=www.mywebsite.com}"
+: "${PASSWORD=abc123def}"
 
-if [[ -z $KEY_STORE ]]; then
-	KEY_STORE="$KAFKA_HOME/ssl/server.keystore.jks"
-fi
+echo "KAFKA_HOME=$KAFKA_HOME KEY_STORE=$KEY_STORE DOMAIN=$DOMAIN PASSWORD=$PASSWORD"
 
-if [[ -z $DOMAIN ]]; then
-	echo "DOMAIN is not set, using www.mywebsite.com"
-	DOMAIN=www.mywebsite.com
-fi
+# If the directory does not exist, use default KAFKA_HOME
+[[ -d ${KAFKA_HOME} ]] || KAFKA_HOME=/kafka_2.12-2.5.0
 
-if [[ -z $PASSWORD ]]; then
-        echo "PASSWORD is not set, using abc123def"
-        PASSWORD=abc123def
-else
-    echo "Using password: $PASSWORD"
-fi
-
-
+# Create keystore, if the file does not exist
 if [[ ! -f $KEY_STORE ]]; then
     echo "No keystore file is found; hence creating a new one at $KAFKA_HOME/ssl/"
 
@@ -38,6 +28,7 @@ if [[ ! -f $KEY_STORE ]]; then
     cd /
 fi
 
+# Copy server.properties to the relevant config directory
 if [[ ! -f $KAFKA_HOME/config/server.proprties ]]; then
     cd $KAFKA_HOME
     cp /serverssl.properties ./config/
