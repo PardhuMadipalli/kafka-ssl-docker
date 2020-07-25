@@ -1,15 +1,15 @@
 #!/bin/bash
-
 # Ensure all environment variables are properly configured.
 : "${KAFKA_HOME=/kafka_2.12-2.5.0}"
 : "${KEY_STORE=$KAFKA_HOME/ssl/server.keystore.jks}"
 : "${DOMAIN=www.mywebsite.com}"
 : "${PASSWORD=abc123def}"
 
-echo "KAFKA_HOME=$KAFKA_HOME KEY_STORE=$KEY_STORE DOMAIN=$DOMAIN PASSWORD=$PASSWORD"
+echo -e "KAFKA_HOME=$KAFKA_HOME\n\
+KEY_STORE=$KEY_STORE\n\
+DOMAIN=$DOMAIN\n\
+PASSWORD=$PASSWORD"
 
-# If the directory does not exist, use default KAFKA_HOME
-[[ -d ${KAFKA_HOME} ]] || KAFKA_HOME=/kafka_2.12-2.5.0
 
 # Create keystore, if the file does not exist
 if [[ ! -f $KEY_STORE ]]; then
