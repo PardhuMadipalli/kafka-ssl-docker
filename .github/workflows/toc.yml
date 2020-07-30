@@ -14,3 +14,4 @@ jobs:
       - uses: technote-space/toc-generator@v2
         with:
           GITHUB_TOKEN: ${{ secrets.NEW_ACCESS }}
+          CREATE_PR:  true
