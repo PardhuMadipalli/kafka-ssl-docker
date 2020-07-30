@@ -17,12 +17,6 @@ Run this command to pull the image: **`docker pull pardhu1212/kafka-ssl`**
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-- [Table of Contents](#kafka-broker-with-ssl-enabled-using-docker)
-  * [Quickstart](#quickstart)
-    + [Environment variables](#environment-variables)
-    + [Purpose](#purpose)
-  * [Description](#description)
-    + [Used tools](#used-tools)
     
 ## Quickstart
 1. Ruild the docker image using `docker build -t kafka-ssl-image`
