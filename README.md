@@ -5,8 +5,17 @@ The docker image is available on [Docker Hub](https://hub.docker.com/r/pardhu121
 Run this command to pull the image: **`docker pull pardhu1212/kafka-ssl`**
 
 # Kafka broker with SSL enabled using Docker
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [Quickstart](#quickstart)
+  - [Environment variables](#environment-variables)
+  - [Purpose](#purpose)
+- [Description](#description)
+  - [Used tools](#used-tools)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 - [Table of Contents](#kafka-broker-with-ssl-enabled-using-docker)
   * [Quickstart](#quickstart)
