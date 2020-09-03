@@ -32,3 +32,4 @@ jobs:
         repository: pardhu1212/kafka-ssl
         tags: 0.1.0
         labels: maintainer=Pardhu,production=false
+        push: ${{ startsWith(github.ref, 'refs/tags/') }}
