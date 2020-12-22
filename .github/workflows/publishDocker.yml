@@ -16,20 +16,26 @@ on:
     paths-ignore:
       - '**.yml'
       - '**.md'
+  # Trigger whenever there is a new release so that Docker image tag will be updated
+  release:
+    types: [ published ]
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-      
+
+    # https://github.com/marketplace/actions/build-and-push-docker-images  
     - name: Build and push Docker images
       uses: docker/build-push-action@v1.1.0
       with:
         username: ${{ secrets.DOCKER_HUB_USERID }}
         password:  ${{ secrets.DOCKER_HUB_PASSWORD }}
-        dockerfile: Dockerfile 
+        dockerfile: Dockerfile
+        # Repository in dockerhub
         repository: pardhu1212/kafka-ssl
-        tags: 0.1.0
+        # If the branch is master then tag will be latest, for a release 
+        tag_with_ref: true
         labels: maintainer=Pardhu,production=false
         push: ${{ startsWith(github.ref, 'refs/tags/') }}

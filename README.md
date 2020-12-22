@@ -18,13 +18,13 @@ Run this command to pull the image: **`docker pull pardhu1212/kafka-ssl`**
   - [Used tools](#used-tools)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
     
 ## Quickstart
-1. Ruild the docker image using `docker build -t kafka-ssl-image`
-2. Run the container using `docker run --net=host --init -d --name=kafkassl kafka-ssl-image`
-3. Access the generated key store file by using command `docker cp kafkassl:/kafka_2.12-2.5.0/ssl/server.keystore.jks keystore.jks`
-4. Default password for keystore is `password`
+1. Download the image from the above link OR
+2. Ruild the docker image using `docker build -t pardhu1212/kafka-ssl`
+3. Run the container using `docker run --init -d -p 9093:9093 -p 9094:9094 --name=kafkassl pardhu1212/kafka-sss`
+4. Access the generated key store file by using command `docker cp kafkassl:/kafka_2.12-2.5.0/ssl/server.keystore.jks keystore.jks`
+5. Default password for keystore is `password`
 
 ### Environment variables
 
@@ -38,19 +38,34 @@ Run this command to pull the image: **`docker pull pardhu1212/kafka-ssl`**
 
 Example of setting environment variable `PASSWORD`: 
 ```
-docker run --net=host --init -d --name=kafkassl -e PASSWORD=abc123def pardhu1212/kafka-ssl
+docker run --init -d --name=kafkassl -p 9093:9093 -p 9094:9094 -e PASSWORD=abc123def pardhu1212/kafka-ssl
 ```
 
 
 ### Purpose
 - The primary purpose of the project is to create a kafka container with SSL enabled.
-- The secondary goal of the project is to learn various docker commands and an important supervisor process called **runit**. Details will be explained in the further sections.
+- The secondary goal of the project is to learn about kafka with SSL, docker commands and an important supervisor process called **runit**.
 
 ## Description
 
-### Used tools 
+### Kafka with SSL
 
-- Java (openJDK)
-- Openssl
-- runit
+In the file [prepStartup.sh](https://github.com/PardhuMadipalli/kafka-ssl-docker/blob/master/prepStartup.sh) we can notice different openssl and keytool commands. To understand what we are doing here, we need to have a basic understanding of how SSL works.
 
+#### SSL
+When a server is SSL enabled, it provides a certificate and the client validates it. When we browse for `https://www.google.com`, the Google server first responds with a certificate along with some details,
+Your browser has a list of certificates(in fact Certifcate Authorities) that it will trust. Since the Google's certificate is signed by a trustworthy Certifcate Authority(CA) like Verizon, your browser allows further connection.
+
+Kafka SSL also works in a similar way. If you create a kafka broker (an equivalent of Google server), you want to make it SSL enabled, you have to provide a certificate. This certificate should be signed by a certificate authority.
+In the production use case, you have to create the certificate and mail it to an actual and trusted CA so that they will sign it. Then you can use this whenever a client tries to connect to you.
+
+But how can we achieve this in a development scenario? Then you can create your own CA and sign your own certificate. The shell script does exactly that. It will create a certifcate, sign it with a self created CA
+and store them in a keystore file. We use Keytool(provided by Java) and Openssl to create them.
+
+#### Certificate creation and signing
+
+- The content of the certificate file is encrypted using an algorithm. Most people use RSA and the same has been used here.
+- The validity of the certifcate needs to be specified. Here the validity is chosen as 365 days from the day of creation.
+- The most important details when creating the certificate is the Common Name(CN). Most clients who receive the SSL certifcate will 
+verify the name of the domain with the CN of the certifcate. If it does not match, although the certificate is issued a 
+trusted CA, the connection might be rejected.

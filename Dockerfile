@@ -5,7 +5,7 @@ RUN apt-get update > /dev/null && apt-get install libssl-dev openssl -y > /dev/n
 RUN apt-get update > /dev/null && apt-get install openjdk-8-jdk -y > /dev/null
 
 
-ADD http://apachemirror.wuchna.com/kafka/2.5.0/kafka_2.12-2.5.0.tgz .
+ADD https://mirrors.estointernet.in/apache/kafka/2.5.0/kafka_2.12-2.5.0.tgz .
 RUN tar xzf kafka_2.12-2.5.0.tgz && rm kafka_2.12-2.5.0.tgz
 
 RUN mkdir -p /etc/service/zookeeper/
