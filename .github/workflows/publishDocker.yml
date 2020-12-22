@@ -38,3 +38,4 @@ jobs:
         # If the branch is master then tag will be latest, for a release 
         tag_with_ref: true
         labels: maintainer=Pardhu,production=false
+        push: ${{ startsWith(github.ref, 'refs/tags/') }}

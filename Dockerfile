@@ -28,4 +28,7 @@ EXPOSE 2181/tcp
 EXPOSE 9093/tcp
 EXPOSE 9094/tcp
 
+HEALTHCHECK --interval=60s --timeout=5s --start-period=30s \
+CMD [[ $(sv status kafka) =~ "run" ]] || exit 1
+
 CMD ["runsvdir", "/etc/service"]

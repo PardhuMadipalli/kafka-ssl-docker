@@ -12,11 +12,11 @@ PASSWORD=$PASSWORD"
 
 
 # Create keystore, if the file does not exist
-if [[ ! -f $KEY_STORE ]]; then
+if [[ ! -f ${KEY_STORE} ]]; then
     echo "No keystore file is found; hence creating a new one at $KAFKA_HOME/ssl/"
 
-    mkdir -p $KAFKA_HOME/ssl/
-    cd $KAFKA_HOME/ssl/
+    mkdir -p ${KAFKA_HOME}/ssl/
+    cd ${KAFKA_HOME}/ssl/ || exitWithError "KAFKA_HOME/ssl directory does not exist"
 
     keytool -keystore server.keystore.jks -alias $DOMAIN -validity 365 -genkey -keyalg RSA -dname "CN=$DOMAIN, OU=orgunit, O=Organisation, L=bangalore, S=Karnataka, C=IN" -ext SAN=DNS:$DOMAIN -keypass $PASSWORD -storepass $PASSWORD && \
     openssl req -new -x509 -keyout ca-key -out ca-cert -days 365 -passout pass:"$PASSWORD" -subj "/CN=$DOMAIN" && \
@@ -29,8 +29,8 @@ if [[ ! -f $KEY_STORE ]]; then
 fi
 
 # Copy server.properties to the relevant config directory
-if [[ ! -f $KAFKA_HOME/config/server.proprties ]]; then
-    cd $KAFKA_HOME
+if [[ ! -f ${KAFKA_HOME}/config/server.proprties ]]; then
+    cd ${KAFKA_HOME} || exitWithError "KAFKA_HOME directory does not exist"
     cp /serverssl.properties ./config/
     sed -i "s|<WEBSITE>|${DOMAIN}|g" ./config/serverssl.properties
     sed -i "s|<PASSWORD>|${PASSWORD}|g" ./config/serverssl.properties

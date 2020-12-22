@@ -1,18 +1,23 @@
-![](https://github.com/PardhuMadipalli/kafka-ssl-docker/workflows/Publish%20Docker%20image/badge.svg)
+![](https://github.com/PardhuMadipalli/kafka-ssl-docker/workflows/Publish%20Docker%20image/badge.svg)  ![](https://github.com/PardhuMadipalli/kafka-ssl-docker/workflows/Shellcheck/badge.svg) 
+
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 The docker image is available on [Docker Hub](https://hub.docker.com/r/pardhu1212/kafka-ssl)
 
 Run this command to pull the image: **`docker pull pardhu1212/kafka-ssl`**
 
 # Kafka broker with SSL enabled using Docker
-- [Table of Contents](#kafka-broker-with-ssl-enabled-using-docker)
-  * [Quickstart](#quickstart)
-    + [Environment variables](#environment-variables)
-    + [Purpose](#purpose)
-  * [Description](#description)
-    + [Kafka with SSL](#kafka-with-ssl)
-        - [SSL](#ssl)
-        - [Certificate creation and signing](#certificate-creation-and-signing)
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [Quickstart](#quickstart)
+  - [Environment variables](#environment-variables)
+  - [Purpose](#purpose)
+- [Description](#description)
+  - [Used tools](#used-tools)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
     
 ## Quickstart
 1. Download the image from the above link OR
