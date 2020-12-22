@@ -15,7 +15,9 @@ Run this command to pull the image: **`docker pull pardhu1212/kafka-ssl`**
   - [Environment variables](#environment-variables)
   - [Purpose](#purpose)
 - [Description](#description)
-  - [Used tools](#used-tools)
+  - [Kafka with SSL](#kafka-with-ssl)
+    - [SSL](#ssl)
+    - [Certificate creation and signing](#certificate-creation-and-signing)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
     
