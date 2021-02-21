@@ -1,5 +1,7 @@
 ![](https://github.com/PardhuMadipalli/kafka-ssl-docker/workflows/Publish%20Docker%20image/badge.svg)  ![](https://github.com/PardhuMadipalli/kafka-ssl-docker/workflows/Shellcheck/badge.svg) 
 
+![](https://img.shields.io/docker/pulls/pardhu1212/kafka-ssl?color=brightgreen&label=Docker%20Pulls)
+
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 The docker image is available on [Docker Hub](https://hub.docker.com/r/pardhu1212/kafka-ssl:0.1.0)
