@@ -2,9 +2,9 @@
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-The docker image is available on [Docker Hub](https://hub.docker.com/r/pardhu1212/kafka-ssl)
+The docker image is available on [Docker Hub](https://hub.docker.com/r/pardhu1212/kafka-ssl:0.1.0)
 
-Run this command to pull the image: **`docker pull pardhu1212/kafka-ssl`**
+Run this command to pull the image: **`docker pull pardhu1212/kafka-ssl:0.1.0`**
 
 # Kafka broker with SSL enabled using Docker
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
@@ -22,11 +22,14 @@ Run this command to pull the image: **`docker pull pardhu1212/kafka-ssl`**
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
     
 ## Quickstart
-1. Download the image from the above link OR
-2. Ruild the docker image using `docker build -t pardhu1212/kafka-ssl`
-3. Run the container using `docker run --init -d -p 9093:9093 -p 9094:9094 --name=kafkassl pardhu1212/kafka-sss`
-4. Access the generated key store file by using command `docker cp kafkassl:/kafka_2.12-2.5.0/ssl/server.keystore.jks keystore.jks`
-5. Default password for keystore is `password`
+- Download the image from the above link 
+ 
+ OR
+ 
+1. Ruild the docker image using `docker build -t kafka-ssl`
+2. Run the container using `docker run --init -d -p 9093:9093 -p 9094:9094 --name=kafkassl kafka-ssl`
+3. Access the generated key store file by using command `docker cp kafkassl:/kafka_2.12-2.5.0/ssl/server.keystore.jks keystore.jks`
+4. Default password for keystore is `password`
 
 ### Environment variables
 
@@ -40,7 +43,7 @@ Run this command to pull the image: **`docker pull pardhu1212/kafka-ssl`**
 
 Example of setting environment variable `PASSWORD`: 
 ```
-docker run --init -d --name=kafkassl -p 9093:9093 -p 9094:9094 -e PASSWORD=abc123def pardhu1212/kafka-ssl
+docker run --init -d --name=kafkassl -p 9093:9093 -p 9094:9094 -e PASSWORD=abc123def pardhu1212/kafka-ssl:0.1.0
 ```
 
 
