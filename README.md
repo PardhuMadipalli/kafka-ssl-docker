@@ -13,8 +13,12 @@ The docker image is available on [Docker Hub](https://hub.docker.com/r/pardhu121
 **Table of Contents**
 
 - [Quickstart](#quickstart)
-  - [Environment variables](#environment-variables)
-  - [Purpose](#purpose)
+    - [Docker Compose](#docker-compose)
+    - [Existing docker image](#existing-docker-image)
+    - [Building a local image](#building-a-local-image)
+      - [Keystore file](#keystore-file)
+- [Environment variables](#environment-variables)
+- [Purpose](#purpose)
 - [Description](#description)
   - [Kafka with SSL](#kafka-with-ssl)
     - [SSL](#ssl)
