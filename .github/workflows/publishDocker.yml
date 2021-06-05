@@ -2,16 +2,9 @@
 
 name: Publish Docker image
 
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branch
+# Controls when the action will run. Triggers the workflow on publishing a new release or push to master
 on:
   push:
-    branches: [ master ]
-    # Do not run for changes only in yml or md files
-    paths-ignore: 
-      - '**.yml'
-      - '**.md'
-  pull_request:
     branches: [ master ]
     paths-ignore:
       - '**.yml'
@@ -25,7 +18,6 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-
     # https://github.com/marketplace/actions/build-and-push-docker-images  
     - name: Build and push Docker images
       uses: docker/build-push-action@v1.1.0
