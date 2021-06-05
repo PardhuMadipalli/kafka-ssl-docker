@@ -2,10 +2,10 @@
 
 name: Build Docker image
 
-# Controls when the action will run. Triggers the workflow on publishing a new release or push to master
+# Controls when the action will run. Triggers the workflow on publishing a new release or push to main
 on:
   pull-request:
-    branches: [ master ]
+    branches: [ main ]
     paths-ignore:
       - '**.yml'
       - '**.md'

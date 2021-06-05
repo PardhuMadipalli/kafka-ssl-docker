@@ -104,7 +104,7 @@ Access the generated key store file by using command `docker cp kafkassl:/kafka_
 
 ### Kafka with SSL
 
-In the file [prepStartup.sh](https://github.com/PardhuMadipalli/kafka-ssl-docker/blob/master/prepStartup.sh) we can notice different openssl and keytool commands. To understand what we are doing here, we need to have a basic understanding of how SSL works.
+In the file [prepStartup.sh](https://github.com/PardhuMadipalli/kafka-ssl-docker/blob/main/prepStartup.sh) we can notice different openssl and keytool commands. To understand what we are doing here, we need to have a basic understanding of how SSL works.
 
 #### SSL
 When a server is SSL enabled, it provides a certificate and the client validates it. When we browse for `https://www.google.com`, the Google server first responds with a certificate along with some details,
