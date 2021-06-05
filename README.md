@@ -12,10 +12,10 @@ The docker image is available on [Docker Hub](https://hub.docker.com/r/pardhu121
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**
 
-- [Quickstart](#quickstart)
-    - [Docker Compose](#docker-compose)
-    - [Existing docker image](#existing-docker-image)
-    - [Building a local image](#building-a-local-image)
+- [Installation (three ways)](#installation-three-ways)
+    - [a. Docker Compose](#a-docker-compose)
+    - [b. Existing docker image](#b-existing-docker-image)
+    - [c. Building a local image](#c-building-a-local-image)
       - [Keystore file](#keystore-file)
 - [Environment variables](#environment-variables)
 - [Purpose](#purpose)
