@@ -26,9 +26,9 @@ The docker image is available on [Docker Hub](https://hub.docker.com/r/pardhu121
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
     
-## Quickstart
+## Installation (three ways)
 
-#### Docker Compose
+#### a. Docker Compose
 1. Copy the below block into a file `docker-compose.yml`
 
 ```Yaml
@@ -55,7 +55,7 @@ services:
 docker compose up -d
 ```
 
-#### Existing docker image
+#### b. Existing docker image
 
  
 1. Pull the image: 
@@ -69,7 +69,7 @@ docker run --init -d -p 9093:9093 -p 9094:9094 --name=kafkassl -e PASSWORD=passw
 ```
 
 
-#### Building a local image
+#### c. Building a local image
  
 1. Ruild the docker image using
 ```shell
