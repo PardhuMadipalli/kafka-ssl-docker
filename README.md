@@ -59,17 +59,27 @@ docker compose up -d
 
  
 1. Pull the image: 
-`docker pull pardhu1212/kafka-ssl:0.1.0`
+```shell 
+docker pull pardhu1212/kafka-ssl:0.1.0
+```
 
 2. Run the container using the command: 
-`docker run --init -d -p 9093:9093 -p 9094:9094 --name=kafkassl -e PASSWORD=password DOMAIN=www.mywebsite.com pardhu1212/kafka-ssl`
+```shell
+docker run --init -d -p 9093:9093 -p 9094:9094 --name=kafkassl -e PASSWORD=password DOMAIN=www.mywebsite.com pardhu1212/kafka-ssl
+```
+
 
 #### Building a local image
  
-1. Ruild the docker image using 
-`docker build -t kafka-ssl-local`
+1. Ruild the docker image using
+```shell
+docker build -t kafka-ssl-local
+```
+
 2. Run the container using
-`docker run --init -d -p 9093:9093 -p 9094:9094 --name=kafkassl kafka-ssl-local`
+```shell
+docker run --init -d -p 9093:9093 -p 9094:9094 --name=kafkassl kafka-ssl-local
+```
 
 ##### Keystore file
 Access the generated key store file by using command `docker cp kafkassl:/kafka_2.12-2.5.0/ssl/server.keystore.jks keystore.jks`
