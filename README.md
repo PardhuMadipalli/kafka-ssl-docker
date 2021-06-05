@@ -6,7 +6,6 @@
 
 The docker image is available on [Docker Hub](https://hub.docker.com/r/pardhu1212/kafka-ssl:0.1.0)
 
-Run this command to pull the image: **`docker pull pardhu1212/kafka-ssl:0.1.0`**
 
 # Kafka broker with SSL enabled using Docker
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
@@ -24,16 +23,52 @@ Run this command to pull the image: **`docker pull pardhu1212/kafka-ssl:0.1.0`**
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
     
 ## Quickstart
-- Download the image from the above link 
- 
- OR
- 
-1. Ruild the docker image using `docker build -t kafka-ssl`
-2. Run the container using `docker run --init -d -p 9093:9093 -p 9094:9094 --name=kafkassl kafka-ssl`
-3. Access the generated key store file by using command `docker cp kafkassl:/kafka_2.12-2.5.0/ssl/server.keystore.jks keystore.jks`
-4. Default password for keystore is `password`
 
-### Environment variables
+#### Docker Compose
+1. Copy the below block into a file `docker-compose.yml`
+
+```
+version: "3"
+services:
+  kafka:
+    image: "pardhu1212/kafka-ssl:0.1.0"
+    ports:
+      # SSL port
+      - "9093:9093"
+      # Plaintext port
+      - "9094:9094"
+      # zookeeper
+      - "2181:2181"
+    init: true
+    environment:
+      PASSWORD: "PAss$$123worD"
+      # This can be domain name or IP address
+      DOMAIN: "www.mywebsite.com"
+    container_name: kafkassl
+```
+2. Run the command `docker compose up -d`
+
+#### Existing docker image
+
+ 
+1. Pull the image: 
+`docker pull pardhu1212/kafka-ssl:0.1.0`
+
+2. Run the container using the command: 
+`docker run --init -d -p 9093:9093 -p 9094:9094 --name=kafkassl -e PASSWORD=password DOMAIN=www.mywebsite.com pardhu1212/kafka-ssl`
+
+#### Building a local image
+ 
+1. Ruild the docker image using 
+`docker build -t kafka-ssl-local`
+2. Run the container using
+`docker run --init -d -p 9093:9093 -p 9094:9094 --name=kafkassl kafka-ssl-local`
+
+##### Keystore file
+Access the generated key store file by using command `docker cp kafkassl:/kafka_2.12-2.5.0/ssl/server.keystore.jks keystore.jks`
+
+
+## Environment variables
 
 | Variable   | Default value                             | Importance | Description                                                                                | 
 |:----------:|:-----------------------------------------:|:----------:|:-------------------------------------------------------------------------------------------|
@@ -43,13 +78,8 @@ Run this command to pull the image: **`docker pull pardhu1212/kafka-ssl:0.1.0`**
 | KEY_STORE  | /kafka_2.12-2.5.0/ssl/server.keystore.jks | LOW        | Keystore jks file path to be used inside docker container.                                 | 
 
 
-Example of setting environment variable `PASSWORD`: 
-```
-docker run --init -d --name=kafkassl -p 9093:9093 -p 9094:9094 -e PASSWORD=abc123def pardhu1212/kafka-ssl:0.1.0
-```
 
-
-### Purpose
+## Purpose
 - The primary purpose of the project is to create a kafka container with SSL enabled.
 - The secondary goal of the project is to learn about kafka with SSL, docker commands and an important supervisor process called **runit**.
 

@@ -1,0 +1,17 @@
+version: "3"
+services:
+  kafka:
+    image: "pardhu1212/kafka-ssl:0.1.0"
+    ports:
+      # SSL port
+      - "9093:9093"
+      # Plaintext port
+      - "9094:9094"
+      # zookeeper
+      - "2181:2181"
+    init: true
+    environment:
+      PASSWORD: "PAss$$123worD"
+      # This can be domain name or IP address
+      DOMAIN: "www.mywebsite.com"
+    container_name: kafkassl
