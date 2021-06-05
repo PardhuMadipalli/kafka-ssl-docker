@@ -31,7 +31,7 @@ The docker image is available on [Docker Hub](https://hub.docker.com/r/pardhu121
 #### Docker Compose
 1. Copy the below block into a file `docker-compose.yml`
 
-```
+```Yaml
 version: "3"
 services:
   kafka:
@@ -50,7 +50,10 @@ services:
       DOMAIN: "www.mywebsite.com"
     container_name: kafkassl
 ```
-2. Run the command `docker compose up -d`
+2. Run the command 
+```Shell
+docker compose up -d
+```
 
 #### Existing docker image
 
