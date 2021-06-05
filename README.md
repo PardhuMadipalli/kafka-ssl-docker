@@ -116,6 +116,7 @@ In the production use case, you have to create the certificate and mail it to an
 But how can we achieve this in a development scenario? Then you can create your own CA and sign your own certificate. The shell script does exactly that. It will create a certifcate, sign it with a self created CA
 and store them in a keystore file. We use Keytool(provided by Java) and Openssl to create them.
 
+
 #### Certificate creation and signing
 
 - The content of the certificate file is encrypted using an algorithm. Most people use RSA and the same has been used here.
